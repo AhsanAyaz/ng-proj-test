@@ -13,6 +13,10 @@ npm install
 echo "Building the application..."
 npm run build
 
+echo "Copying environment files..."
+cp .env dist/smart-grocery-assistant/server/
+cp io-connect-service-account.json dist/smart-grocery-assistant/server/
+
 # 3. Deploy with pm2
 echo "Stopping and deleting existing 'smart-grocery-assistant' pm2 process..."
 pm2 stop smart-grocery-assistant || true # Continue even if stop fails (process might not exist)
